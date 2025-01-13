@@ -68,8 +68,11 @@ export default function Home() {
       <section className="relative overflow-hidden bg-[#EBE3D5]">
         <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-5"></div>
         <div className="absolute inset-0 bg-gradient-to-t from-[#D6CCBB]/30 to-[#F5F0E8]/30"></div>
-        <div className="relative container mx-auto px-6 py-32">
+        <div className="relative container mx-auto px-6 py-24">
           <div className="max-w-3xl mx-auto text-center">
+            <div className="flex justify-center mb-8">
+              <img src="/assets/logo.png" alt="Voltzy" className="h-24 w-24" />
+            </div>
             <h1 className="text-5xl md:text-6xl font-bold mb-6 tracking-tight text-[#2D2D2D]">
               How can we help?
             </h1>
