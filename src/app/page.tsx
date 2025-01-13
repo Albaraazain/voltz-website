@@ -1,101 +1,131 @@
-import Image from "next/image";
+'use client';
+import React from 'react';
+import Link from 'next/link';
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+  const supportCategories = [
+    {
+      title: "For Homeowners",
+      items: [
+        "Finding and booking electricians",
+        "Managing appointments and payments",
+        "Rating and reviewing services",
+        "Emergency service requests",
+        "Account settings and preferences"
+      ]
+    },
+    {
+      title: "For Electricians",
+      items: [
+        "Profile setup and verification",
+        "Managing service availability",
+        "Handling job requests",
+        "Payment processing",
+        "Professional guidelines"
+      ]
+    }
+  ];
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+  const contactMethods = [
+    {
+      title: "Support",
+      email: "support@electriconnect.com",
+      description: "For general inquiries and assistance",
+      response: "Response within 24 hours"
+    },
+    {
+      title: "Business Inquiries",
+      email: "business@electriconnect.com",
+      description: "For partnerships and business opportunities",
+      response: "Response within 48 hours"
+    }
+  ];
+
+  return (
+    <main className="min-h-screen bg-gradient-to-b from-white to-gray-50">
+      {/* Hero Section */}
+      <section className="relative overflow-hidden bg-blue-600 text-white">
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-blue-700"></div>
+        <div className="relative container mx-auto px-6 py-24">
+          <h1 className="text-4xl md:text-5xl font-bold mb-6">How can we help?</h1>
+          <p className="text-xl text-blue-100 max-w-2xl">
+            Find answers to common questions and get support for ElectriConnect.
+          </p>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+      </section>
+
+      {/* Support Categories */}
+      <section className="py-20">
+        <div className="container mx-auto px-6">
+          <div className="max-w-4xl mx-auto space-y-16">
+            {supportCategories.map((category, idx) => (
+              <div key={idx}>
+                <h2 className="text-2xl font-semibold mb-6 text-gray-800">{category.title}</h2>
+                <div className="bg-white rounded-xl shadow-sm p-8">
+                  <ul className="space-y-4">
+                    {category.items.map((item, itemIdx) => (
+                      <li key={itemIdx} className="flex items-start">
+                        <span className="inline-block w-2 h-2 rounded-full bg-blue-600 mt-2 mr-3"></span>
+                        <span className="text-gray-600">{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            ))}
+
+            {/* Contact Section */}
+            <div>
+              <h2 className="text-2xl font-semibold mb-6 text-gray-800">Contact Us</h2>
+              <div className="grid md:grid-cols-2 gap-6">
+                {contactMethods.map((method, idx) => (
+                  <div key={idx} className="bg-white rounded-xl shadow-sm p-8">
+                    <h3 className="text-xl font-semibold mb-4 text-gray-800">{method.title}</h3>
+                    <p className="text-gray-600 mb-4">{method.description}</p>
+                    <div className="space-y-2">
+                      <p className="text-gray-800">
+                        Email: <a href={`mailto:${method.email}`} className="text-blue-600 hover:text-blue-700">{method.email}</a>
+                      </p>
+                      <p className="text-gray-600">{method.response}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* App Download */}
+            <div>
+              <h2 className="text-2xl font-semibold mb-6 text-gray-800">Get the App</h2>
+              <div className="bg-white rounded-xl shadow-sm p-8">
+                <p className="text-gray-600 mb-6">
+                  Download ElectriConnect to connect with qualified electricians or manage your electrical service business.
+                </p>
+                <div className="flex flex-wrap gap-4">
+                  <a href="#" className="inline-block bg-black text-white px-6 py-3 rounded-lg hover:bg-gray-800 transition-colors">
+                    Download on the App Store
+                  </a>
+                  <a href="#" className="inline-block bg-black text-white px-6 py-3 rounded-lg hover:bg-gray-800 transition-colors">
+                    Get it on Google Play
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="bg-gray-900 text-gray-400 py-12">
+        <div className="container mx-auto px-6">
+          <div className="max-w-4xl mx-auto text-center">
+            <div className="flex justify-center space-x-8 mb-8">
+              <Link href="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>
+              <Link href="/terms" className="hover:text-white transition-colors">Terms of Service</Link>
+            </div>
+            <p className="text-sm">© 2024 ElectriConnect. All rights reserved.</p>
+          </div>
+        </div>
       </footer>
-    </div>
+    </main>
   );
 }
