@@ -44,25 +44,6 @@ export default function Home() {
     }
   ];
 
-  const colors = {
-    primary: '#EBE3D5',
-    primaryDark: '#D6CCBB',
-    primaryLight: '#F5F0E8',
-    accent: '#4F4F4F',
-    accentLight: '#6E6E6E',
-    textPrimary: '#2D2D2D',
-    textSecondary: '#666666',
-    textLight: '#999999',
-    success: '#4CAF50',
-    error: '#E57373',
-    warning: '#FFB74D',
-    background: '#FAFAFA',
-    surface: '#FFFFFF',
-    cardBg: '#F8F8F8',
-    border: '#E0E0E0',
-    divider: '#EEEEEE',
-  };
-
   return (
     <main className="min-h-screen bg-[#FAFAFA]">
       {/* Hero Section */}

@@ -1,6 +1,7 @@
 'use client';
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function Privacy() {
   const sections = [
@@ -54,6 +55,16 @@ export default function Privacy() {
         <div className="absolute inset-0 bg-gradient-to-t from-[#D6CCBB]/30 to-[#F5F0E8]/30"></div>
         <div className="relative container mx-auto px-6 py-32">
           <div className="max-w-3xl mx-auto text-center">
+            <div className="flex justify-center mb-8">
+              <Image 
+                src="/assets/logo.png" 
+                alt="Voltzy" 
+                width={128} 
+                height={128} 
+                priority
+                className="h-32 w-32"
+              />
+            </div>
             <h1 className="text-5xl md:text-6xl font-bold mb-6 tracking-tight text-[#2D2D2D]">Privacy Policy</h1>
             <p className="text-xl md:text-2xl text-[#666666] max-w-2xl mx-auto leading-relaxed">
               We are committed to protecting your privacy and personal information.
