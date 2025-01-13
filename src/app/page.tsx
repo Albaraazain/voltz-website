@@ -1,6 +1,7 @@
 'use client';
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function Home() {
   const supportCategories = [
@@ -71,7 +72,14 @@ export default function Home() {
         <div className="relative container mx-auto px-6 py-32">
           <div className="max-w-3xl mx-auto text-center">
             <div className="flex justify-center mb-8">
-              <img src="/assets/logo.png" alt="Voltzy" className="h-32 w-32" />
+              <Image 
+                src="/assets/logo.png" 
+                alt="Voltzy" 
+                width={128} 
+                height={128} 
+                priority
+                className="h-32 w-32"
+              />
             </div>
             <h1 className="text-5xl md:text-6xl font-bold mb-6 tracking-tight text-[#2D2D2D]">
               How can we help?
